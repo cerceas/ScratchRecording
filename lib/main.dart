@@ -251,7 +251,7 @@ class _MyAppState extends State<MyApp> {
   Future<String> getPath() async {
     DateTime now = new DateTime.now();
     DateTime date = new DateTime(now.year, now.month, now.day);
-    var day = new DateTime(date.year, date.month+1, date.day);
+    var day = new DateTime(date.year, date.month, date.day);
     var formatter = new DateFormat('M-d-yy');
     String formatdate = formatter.format(day);
 

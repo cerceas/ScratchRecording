@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart' as ap;
+import 'package:http/http.dart' as http;
 
 class AudioPlayer extends StatefulWidget {
   /// Path from where to play recorded audio
@@ -62,6 +63,13 @@ class AudioPlayerState extends State<AudioPlayer> {
     super.dispose();
   }
 
+  Future<String> uploadImage(filename, url) async {
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+    request.files.add(await http.MultipartFile.fromPath('file', filename));
+    var res = await request.send();
+    print(res.statusCode);
+    return res.reasonPhrase!;
+  }
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -86,19 +94,44 @@ class AudioPlayerState extends State<AudioPlayer> {
                 IconButton(
                   icon: Icon(Icons.save,
                       color: const Color(0xFF73748D), size: _deleteBtnSize),
-                  onPressed: () {
-                  showDialog(context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text("Wala pang paglalagyan sa cloud eh HAHA"),
-                        content: Text("Pero locally nasasave hehehe"+ "\n"+widget.path),
-                        actions: [
-                          TextButton(onPressed: (){
-                             Navigator.pop(context);
-                            }, child: Text("OK"))
-                        ],
-                      );
-                    },);
+                  onPressed: () async {
+                    var res = await uploadImage(widget.path, "https://drspeaks.herokuapp.com/records/upload");
+                    setState(() {
+                      print(res);
+                      if(res == "OK") {
+                        showDialog(
+                          context: context, builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Success"),
+                            content: Text(
+                                "The file has been successfully uploaded"),
+                            actions: [
+                              TextButton(onPressed: () {
+                                Navigator.of(context).pop();
+                              }, child: Text('Ok'),
+                              )
+                            ],
+                          );
+                        },
+                        );
+                      }else{
+                        showDialog(
+                          context: context, builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Failed"),
+                            content: Text(
+                                "SAD"),
+                            actions: [
+                              TextButton(onPressed: () {
+                                Navigator.of(context).pop();
+                              }, child: Text('Ok'),
+                              )
+                            ],
+                          );
+                        },
+                        );
+                      }
+                    });
                   },
                 ),
               ],
