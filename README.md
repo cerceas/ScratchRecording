@@ -1,6 +1,8 @@
+![ScratchRecordingSample](https://user-images.githubusercontent.com/43661976/112720681-c7eceb80-8f3a-11eb-8c48-99ff6d8fbc24.gif)
+
 # recording_tool
 
-A new Flutter application.
+Recording tool sample
 
 ## Getting Started
 
