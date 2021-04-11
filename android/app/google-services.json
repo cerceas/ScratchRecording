@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "773518243769",
-    "project_id": "scratchrecording-bffef",
-    "storage_bucket": "scratchrecording-bffef.appspot.com"
+    "project_number": "930659324976",
+    "project_id": "drspeak-183",
+    "storage_bucket": "drspeak-183.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:773518243769:android:598d40c89ca149ff896868",
+        "mobilesdk_app_id": "1:930659324976:android:a31e73325668df5e0189f5",
         "android_client_info": {
-          "package_name": "scratchrecording.recording_tool"
+          "package_name": "com.ellipsis.drspeaks"
         }
       },
       "oauth_client": [
         {
-          "client_id": "773518243769-167pp16b9lr498uekhsk0v7cosejmv7v.apps.googleusercontent.com",
+          "client_id": "930659324976-cps0ui00j9d7lenbrs5q0l7r09fqauk5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCK3GaXpJtk_jJ7_E2i7QneNTkQ8MKBzyI"
+          "current_key": "AIzaSyAa0OsUjLPzPpY_kQdQiIkP5nMynhzespc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "773518243769-167pp16b9lr498uekhsk0v7cosejmv7v.apps.googleusercontent.com",
+              "client_id": "930659324976-cps0ui00j9d7lenbrs5q0l7r09fqauk5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,4 +1,4 @@
-package scratchrecording.recording_tool
+package com.ellipsis.drspeaks
 
 import io.flutter.embedding.android.FlutterActivity
 
